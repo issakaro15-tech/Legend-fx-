@@ -4,56 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Legend FX Academy</title>
-<script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ✅ Correct Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
 
-<nav class="bg-gray-800 text-white px-6 py-4 flex justify-between items-center">
+<!-- NAVBAR -->
+<nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center">
   <div class="text-xl font-bold">Legend FX</div>
-  <div class="space-x-4">
+  <div class="space-x-6 hidden md:block">
     <a href="#courses" class="hover:text-blue-400">Courses</a>
     <a href="#testimonials" class="hover:text-blue-400">Testimonials</a>
-    <a href="#login" class="hover:text-blue-400">Login</a>
+    <a href="#loginSection" class="hover:text-blue-400">Login</a>
   </div>
 </nav>
 
-<section class="bg-blue-600 text-white h-screen flex flex-col justify-center items-center">
+<!-- HERO -->
+<section class="bg-blue-600 text-white min-h-screen flex flex-col justify-center items-center text-center px-6">
   <h1 class="text-4xl md:text-6xl font-bold mb-4">Become a Pro Trader</h1>
   <p class="text-lg md:text-2xl mb-6">Join Legend FX Academy and master Forex trading!</p>
-  <a href="#courses" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">Get Started</a>
+  <a href="#courses" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">Get Started</a>
 </section>
 
+<!-- COURSES -->
 <section id="courses" class="py-20 px-6 md:px-20 bg-gray-100">
   <h2 class="text-3xl font-bold text-center mb-10">Our Courses</h2>
-  <div class="grid md:grid-cols-3 gap-8">
-    <div class="bg-white p-6 rounded-lg shadow-lg">
+
+  <div class="grid gap-8 md:grid-cols-3">
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
       <h3 class="text-xl font-semibold mb-2">Beginner Forex</h3>
       <p>Learn the basics of forex trading in simple, easy steps.</p>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow-lg">
+
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
       <h3 class="text-xl font-semibold mb-2">Intermediate</h3>
       <p>Level up your trading strategies and risk management skills.</p>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow-lg">
+
+    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
       <h3 class="text-xl font-semibold mb-2">Advanced</h3>
       <p>Master forex trading with live analysis and mentorship.</p>
     </div>
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section id="testimonials" class="py-20 px-6 md:px-20">
   <h2 class="text-3xl font-bold text-center mb-10">What Our Students Say</h2>
-  <div class="grid md:grid-cols-3 gap-8">
+
+  <div class="grid gap-8 md:grid-cols-3">
     <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
       <p>"Legend FX taught me to trade with confidence. Highly recommended!"</p>
       <p class="mt-2 font-bold">— Alex</p>
     </div>
+
     <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
       <p>"The mentorship is amazing. I learned strategies I never knew."</p>
       <p class="mt-2 font-bold">— Maria</p>
     </div>
+
     <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
       <p>"Beginner to advanced in just a few months thanks to Legend FX!"</p>
       <p class="mt-2 font-bold">— James</p>
@@ -61,83 +82,100 @@
   </div>
 </section>
 
-<section id="login" class="py-20 px-6 max-w-md mx-auto bg-white rounded-lg shadow-lg">
-  <h2 class="text-2xl font-bold mb-4 text-center">Login or Sign Up</h2>
-  <input type="email" id="email" placeholder="Email" class="p-3 border rounded w-full mb-4">
-  <input type="password" id="password" placeholder="Password" class="p-3 border rounded w-full mb-4">
-  <div class="flex justify-between">
-    <button id="loginBtn" class="bg-blue-600 text-white px-4 py-2 rounded w-1/2 mr-2 hover:bg-blue-700">Login</button>
-    <button id="signupBtn" class="bg-green-600 text-white px-4 py-2 rounded w-1/2 hover:bg-green-700">Sign Up</button>
+<!-- LOGIN -->
+<section id="loginSection" class="py-20 px-6 max-w-md mx-auto">
+  <div id="loginBox" class="bg-white p-8 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold mb-6 text-center">Login or Sign Up</h2>
+
+    <input type="email" id="email" placeholder="Email"
+      class="p-3 border rounded w-full mb-4">
+
+    <input type="password" id="password" placeholder="Password"
+      class="p-3 border rounded w-full mb-4">
+
+    <div class="flex gap-4">
+      <button id="loginBtn"
+        class="bg-blue-600 text-white px-4 py-2 rounded w-1/2 hover:bg-blue-700 transition">
+        Login
+      </button>
+
+      <button id="signupBtn"
+        class="bg-green-600 text-white px-4 py-2 rounded w-1/2 hover:bg-green-700 transition">
+        Sign Up
+      </button>
+    </div>
+
+    <p id="message" class="mt-4 text-center text-red-500"></p>
   </div>
-  <p id="message" class="mt-4 text-red-500 text-center"></p>
 </section>
 
+<!-- DASHBOARD -->
 <section id="dashboard" class="hidden py-20 px-6 max-w-2xl mx-auto text-center">
-  <h2 class="text-3xl font-bold mb-4">Welcome, <span id="userEmail"></span>!</h2>
-  <p>This is your private dashboard. Courses and progress will appear here.</p>
-  <button id="logoutBtn" class="mt-6 bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700">Logout</button>
+  <h2 class="text-3xl font-bold mb-4">
+    Welcome, <span id="userEmail"></span>!
+  </h2>
+  <p>This is your private dashboard.</p>
+
+  <button id="logoutBtn"
+    class="mt-6 bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition">
+    Logout
+  </button>
 </section>
 
-<footer class="bg-gray-800 text-white text-center py-6">
+<footer class="bg-gray-900 text-white text-center py-6 mt-10">
   © 2026 Legend FX. All rights reserved.
 </footer>
 
 <script>
   const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "PASTE_YOURS",
+    authDomain: "PASTE_YOURS",
+    projectId: "PASTE_YOURS",
+    storageBucket: "PASTE_YOURS",
+    messagingSenderId: "PASTE_YOURS",
+    appId: "PASTE_YOURS"
   };
 
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
 
-  const loginBtn = document.getElementById('loginBtn');
-  const signupBtn = document.getElementById('signupBtn');
-  const logoutBtn = document.getElementById('logoutBtn');
-  const message = document.getElementById('message');
-  const dashboard = document.getElementById('dashboard');
-  const userEmailSpan = document.getElementById('userEmail');
+  const loginBox = document.getElementById("loginBox");
+  const dashboard = document.getElementById("dashboard");
+  const message = document.getElementById("message");
+  const userEmailSpan = document.getElementById("userEmail");
 
-  signupBtn.addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+  document.getElementById("signupBtn").onclick = () => {
+    const email = email.value;
+    const password = password.value;
+
     auth.createUserWithEmailAndPassword(email, password)
-      .then(userCredential => {
-        message.innerText = "Signed up successfully!";
-        showDashboard(userCredential.user);
+      .then(user => {
+        message.innerText = "Account created!";
       })
-      .catch(error => { message.innerText = error.message; });
-  });
+      .catch(err => message.innerText = err.message);
+  };
 
-  loginBtn.addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+  document.getElementById("loginBtn").onclick = () => {
+    const email = email.value;
+    const password = password.value;
+
     auth.signInWithEmailAndPassword(email, password)
-      .then(userCredential => {
-        message.innerText = "Logged in!";
-        showDashboard(userCredential.user);
-      })
-      .catch(error => { message.innerText = error.message; });
-  });
+      .catch(err => message.innerText = err.message);
+  };
 
-  logoutBtn.addEventListener('click', () => {
-    auth.signOut().then(() => {
-      dashboard.classList.add('hidden');
-      message.innerText = "Logged out!";
-    });
-  });
-
-  function showDashboard(user) {
-    dashboard.classList.remove('hidden');
-    userEmailSpan.innerText = user.email;
-  }
+  document.getElementById("logoutBtn").onclick = () => {
+    auth.signOut();
+  };
 
   auth.onAuthStateChanged(user => {
-    if(user) showDashboard(user);
+    if (user) {
+      loginBox.classList.add("hidden");
+      dashboard.classList.remove("hidden");
+      userEmailSpan.innerText = user.email;
+    } else {
+      loginBox.classList.remove("hidden");
+      dashboard.classList.add("hidden");
+    }
   });
 </script>
 
