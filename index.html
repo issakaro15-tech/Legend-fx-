@@ -165,13 +165,15 @@
 </footer>
 
 <script>
+  // Your Firebase configuration
   const firebaseConfig = {
-    apiKey: "PASTE_YOURS",
-    authDomain: "PASTE_YOURS",
-    projectId: "PASTE_YOURS",
-    storageBucket: "PASTE_YOURS",
-    messagingSenderId: "PASTE_YOURS",
-    appId: "PASTE_YOURS"
+    apiKey: "AIzaSyB5VkclggFSsQAfl7KdBfq2GKaGgnZYizk",
+    authDomain: "legendfx-1fb75.firebaseapp.com",
+    projectId: "legendfx-1fb75",
+    storageBucket: "legendfx-1fb75.firebasestorage.app",
+    messagingSenderId: "582020103690",
+    appId: "1:582020103690:web:36ab379b0d322301b1a9f3",
+    measurementId: "G-GB0ZMR83BN"
   };
 
   firebase.initializeApp(firebaseConfig);
@@ -182,13 +184,15 @@
   const message = document.getElementById("message");
   const userEmailSpan = document.getElementById("userEmail");
 
+  // SIGN UP with Email Verification
   document.getElementById("signupBtn").onclick = () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
     auth.createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        message.innerText = "Account created successfully!";
+      .then(userCredential => {
+        userCredential.user.sendEmailVerification();
+        message.innerText = "Account created! Check your email to verify.";
         message.className = "mt-4 text-center text-green-600";
       })
       .catch(err => {
@@ -197,23 +201,33 @@
       });
   };
 
+  // LOGIN only if email is verified
   document.getElementById("loginBtn").onclick = () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
     auth.signInWithEmailAndPassword(email, password)
+      .then(userCredential => {
+        if (!userCredential.user.emailVerified) {
+          message.innerText = "Please verify your email first!";
+          message.className = "mt-4 text-center text-red-500";
+          auth.signOut();
+        }
+      })
       .catch(err => {
         message.innerText = err.message;
         message.className = "mt-4 text-center text-red-500";
       });
   };
 
+  // LOGOUT
   document.getElementById("logoutBtn").onclick = () => {
     auth.signOut();
   };
 
+  // AUTH STATE
   auth.onAuthStateChanged(user => {
-    if (user) {
+    if (user && user.emailVerified) {
       loginBox.classList.add("hidden");
       dashboard.classList.remove("hidden");
       userEmailSpan.innerText = user.email;
