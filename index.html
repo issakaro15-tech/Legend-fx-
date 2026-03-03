@@ -5,125 +5,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Legend FX Academy</title>
 
-  <!-- ✅ Correct Tailwind CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 
   <style>
-    html {
+    body {
+      font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
     }
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 pt-20">
 
 <!-- NAVBAR -->
-<nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center">
-  <div class="text-xl font-bold">Legend FX</div>
-  <div class="space-x-6 hidden md:block">
-    <a href="#courses" class="hover:text-blue-400">Courses</a>
-    <a href="#testimonials" class="hover:text-blue-400">Testimonials</a>
-    <a href="#loginSection" class="hover:text-blue-400">Login</a>
+<nav class="bg-gray-900 text-white px-8 py-4 flex justify-between items-center fixed w-full top-0 z-50 shadow-lg">
+  <div class="text-2xl font-bold">Legend FX</div>
+  <div class="space-x-8 hidden md:block">
+    <a href="#courses" class="hover:text-blue-400 transition">Courses</a>
+    <a href="#testimonials" class="hover:text-blue-400 transition">Testimonials</a>
+    <a href="#loginSection" class="hover:text-blue-400 transition">Login</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="bg-blue-600 text-white min-h-screen flex flex-col justify-center items-center text-center px-6">
-  <h1 class="text-4xl md:text-6xl font-bold mb-4">Become a Pro Trader</h1>
-  <p class="text-lg md:text-2xl mb-6">Join Legend FX Academy and master Forex trading!</p>
-  <a href="#courses" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">Get Started</a>
+<section class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white min-h-screen flex flex-col justify-center items-center text-center px-6">
+  <h1 class="text-5xl md:text-7xl font-extrabold mb-6">
+    Master Forex Trading Like a Pro
+  </h1>
+  <p class="text-lg md:text-2xl mb-8 max-w-2xl">
+    Professional mentorship, live market analysis, and step-by-step guidance.
+  </p>
+  <a href="#courses"
+     class="bg-white text-blue-700 px-8 py-4 rounded-xl font-semibold hover:scale-105 transition duration-300 shadow-xl">
+     Start Your Journey
+  </a>
 </section>
 
 <!-- COURSES -->
 <section id="courses" class="py-20 px-6 md:px-20 bg-gray-100">
-  <h2 class="text-3xl font-bold text-center mb-10">Our Courses</h2>
+  <h2 class="text-4xl font-bold text-center mb-14">Our Courses</h2>
 
-  <div class="grid gap-8 md:grid-cols-3">
-    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-      <h3 class="text-xl font-semibold mb-2">Beginner Forex</h3>
-      <p>Learn the basics of forex trading in simple, easy steps.</p>
+  <div class="grid gap-10 md:grid-cols-3">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl hover:scale-105 transition duration-300 text-center">
+      <h3 class="text-2xl font-bold mb-4">Beginner Forex</h3>
+      <p>Learn market basics, trading psychology, and risk management.</p>
+      <p class="mt-4 font-bold text-blue-600 text-xl">$99</p>
+      <button class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+        Enroll Now
+      </button>
     </div>
 
-    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-      <h3 class="text-xl font-semibold mb-2">Intermediate</h3>
-      <p>Level up your trading strategies and risk management skills.</p>
+    <div class="bg-white p-8 rounded-2xl shadow-xl hover:scale-105 transition duration-300 text-center">
+      <h3 class="text-2xl font-bold mb-4">Intermediate</h3>
+      <p>Advanced strategies, chart patterns, and trade execution mastery.</p>
+      <p class="mt-4 font-bold text-blue-600 text-xl">$199</p>
+      <button class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+        Enroll Now
+      </button>
     </div>
 
-    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-      <h3 class="text-xl font-semibold mb-2">Advanced</h3>
-      <p>Master forex trading with live analysis and mentorship.</p>
+    <div class="bg-white p-8 rounded-2xl shadow-xl hover:scale-105 transition duration-300 text-center">
+      <h3 class="text-2xl font-bold mb-4">Advanced</h3>
+      <p>Live market analysis, mentorship, and professional trading mindset.</p>
+      <p class="mt-4 font-bold text-blue-600 text-xl">$299</p>
+      <button class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+        Enroll Now
+      </button>
     </div>
+
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials" class="py-20 px-6 md:px-20">
-  <h2 class="text-3xl font-bold text-center mb-10">What Our Students Say</h2>
+  <h2 class="text-4xl font-bold text-center mb-14">What Our Students Say</h2>
 
-  <div class="grid gap-8 md:grid-cols-3">
-    <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-      <p>"Legend FX taught me to trade with confidence. Highly recommended!"</p>
-      <p class="mt-2 font-bold">— Alex</p>
+  <div class="grid gap-10 md:grid-cols-3">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl">
+      <p>"Legend FX changed my mindset about trading completely."</p>
+      <p class="mt-4 font-bold">— Alex</p>
     </div>
 
-    <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-      <p>"The mentorship is amazing. I learned strategies I never knew."</p>
-      <p class="mt-2 font-bold">— Maria</p>
+    <div class="bg-white p-8 rounded-2xl shadow-xl">
+      <p>"The mentorship is powerful and very practical."</p>
+      <p class="mt-4 font-bold">— Maria</p>
     </div>
 
-    <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-      <p>"Beginner to advanced in just a few months thanks to Legend FX!"</p>
-      <p class="mt-2 font-bold">— James</p>
+    <div class="bg-white p-8 rounded-2xl shadow-xl">
+      <p>"Best investment I made for my trading journey."</p>
+      <p class="mt-4 font-bold">— James</p>
     </div>
+
   </div>
+</section>
+
+<!-- TRUST SECTION -->
+<section class="bg-gray-900 text-white py-16 text-center px-6">
+  <h2 class="text-3xl font-bold mb-6">Why Choose Legend FX?</h2>
+  <p class="max-w-3xl mx-auto">
+    We focus on discipline, risk management, and responsible trading.
+    Trading involves risk. Never trade money you cannot afford to lose.
+  </p>
 </section>
 
 <!-- LOGIN -->
 <section id="loginSection" class="py-20 px-6 max-w-md mx-auto">
-  <div id="loginBox" class="bg-white p-8 rounded-lg shadow-lg">
-    <h2 class="text-2xl font-bold mb-6 text-center">Login or Sign Up</h2>
+  <div id="loginBox" class="bg-white p-10 rounded-2xl shadow-2xl">
+    <h2 class="text-3xl font-bold mb-8 text-center">Login or Sign Up</h2>
 
     <input type="email" id="email" placeholder="Email"
-      class="p-3 border rounded w-full mb-4">
+      class="p-3 border border-gray-300 rounded-lg w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
     <input type="password" id="password" placeholder="Password"
-      class="p-3 border rounded w-full mb-4">
+      class="p-3 border border-gray-300 rounded-lg w-full mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
     <div class="flex gap-4">
       <button id="loginBtn"
-        class="bg-blue-600 text-white px-4 py-2 rounded w-1/2 hover:bg-blue-700 transition">
+        class="bg-blue-600 text-white px-4 py-3 rounded-lg w-1/2 hover:bg-blue-700 transition">
         Login
       </button>
 
       <button id="signupBtn"
-        class="bg-green-600 text-white px-4 py-2 rounded w-1/2 hover:bg-green-700 transition">
+        class="bg-green-600 text-white px-4 py-3 rounded-lg w-1/2 hover:bg-green-700 transition">
         Sign Up
       </button>
     </div>
 
-    <p id="message" class="mt-4 text-center text-red-500"></p>
+    <p id="message" class="mt-4 text-center"></p>
   </div>
 </section>
 
 <!-- DASHBOARD -->
 <section id="dashboard" class="hidden py-20 px-6 max-w-2xl mx-auto text-center">
-  <h2 class="text-3xl font-bold mb-4">
-    Welcome, <span id="userEmail"></span>!
-  </h2>
-  <p>This is your private dashboard.</p>
+  <div class="bg-white p-10 rounded-2xl shadow-2xl">
+    <h2 class="text-3xl font-bold mb-4">
+      Welcome, <span id="userEmail"></span>
+    </h2>
+    <p class="mb-6">This is your private student dashboard.</p>
 
-  <button id="logoutBtn"
-    class="mt-6 bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition">
-    Logout
-  </button>
+    <button id="logoutBtn"
+      class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">
+      Logout
+    </button>
+  </div>
 </section>
 
 <footer class="bg-gray-900 text-white text-center py-6 mt-10">
-  © 2026 Legend FX. All rights reserved.
+  © 2026 Legend FX Academy. All rights reserved.
 </footer>
 
 <script>
@@ -145,22 +183,29 @@
   const userEmailSpan = document.getElementById("userEmail");
 
   document.getElementById("signupBtn").onclick = () => {
-    const email = email.value;
-    const password = password.value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
     auth.createUserWithEmailAndPassword(email, password)
-      .then(user => {
-        message.innerText = "Account created!";
+      .then(() => {
+        message.innerText = "Account created successfully!";
+        message.className = "mt-4 text-center text-green-600";
       })
-      .catch(err => message.innerText = err.message);
+      .catch(err => {
+        message.innerText = err.message;
+        message.className = "mt-4 text-center text-red-500";
+      });
   };
 
   document.getElementById("loginBtn").onclick = () => {
-    const email = email.value;
-    const password = password.value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
     auth.signInWithEmailAndPassword(email, password)
-      .catch(err => message.innerText = err.message);
+      .catch(err => {
+        message.innerText = err.message;
+        message.className = "mt-4 text-center text-red-500";
+      });
   };
 
   document.getElementById("logoutBtn").onclick = () => {
